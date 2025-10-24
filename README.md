@@ -1,36 +1,229 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TaskM - Task Management System
 
-## Getting Started
+A comprehensive role-based task management application built with Next.js, featuring three distinct user roles with customized permissions and dashboards.
 
-First, run the development server:
+## Features
+
+### Role-Based Access Control
+
+- **Admin**: Full system access with user management capabilities
+- **Manager**: Project and task management for owned projects
+- **Member**: View and update assigned tasks
+
+### Core Functionality
+
+- **Authentication System**: Secure login with seed data validation
+- **Protected Routes**: Dashboard, Projects, and Tasks pages require authentication
+- **Real-time Updates**: Global state management for seamless data synchronization
+- **Toast Notifications**: User feedback for all CRUD operations and authentication events
+
+### Admin Capabilities
+
+- Manage user roles (promote/demote users)
+- Create, edit, and delete all projects
+- Create, edit, and delete all tasks
+- View system-wide statistics and analytics
+- Access to complete user management interface
+
+### Manager Capabilities
+
+- Create and manage their own projects
+- Create, edit, and delete tasks within their projects
+- Assign tasks to team members
+- View project-specific analytics and progress
+- Monitor task completion rates
+
+### Member Capabilities
+
+- View all tasks assigned to them
+- Update task status (mark as pending/completed)
+- Track personal task completion progress
+- Access personalized dashboard with task overview
+
+## Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/) - React framework for production
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/) - Re-usable component library
+- **Language**: JavaScript
+- **State Management**: React Context API (AuthContext & CrudContext)
+- **Notifications**: Sonner - Toast notifications library
+
+## 📁 Project Structure
+
+```
+taskm/
+├── src/
+│   ├── app/
+│   │   ├── dashboard/
+│   │   │   └── page.jsx          # Main dashboard with role-based views
+│   │   ├── login/
+│   │   │   └── page.jsx          # Authentication page
+│   │   ├── projects/
+│   │   │   └── page.jsx          # Projects management (protected)
+│   │   ├── tasks/
+│   │   │   └── page.jsx          # Tasks management (protected)
+│   │   ├── layout.jsx
+│   │   └── page.jsx
+│   ├── components/
+│   │   ├── ui/                   # shadcn/ui components
+│   │   ├── app-sidebar.jsx       # Navigation sidebar
+│   │   └── ProtectedRoute.jsx    # Route protection wrapper
+│   ├── context/
+│   │   ├── AuthContext.jsx       # Authentication state management
+│   │   └── CrudContext.jsx       # CRUD operations state management
+│   └── data/
+│       └── seedData.js           # Initial user data for authentication
+├── public/
+├── package.json
+└── README.md
+```
+
+## 🔐 Authentication
+
+The application uses seed data for login operations. Users must authenticate with valid credentials from the seed data to access protected routes.
+
+### Seed Data Users
+
+The system includes pre-configured users with different roles:
+
+- **Admin users**: Full system access
+- **Manager users**: Project management access
+- **Member users**: Task viewing and update access
+
+> **Note**: Invalid login attempts will prompt users to use the correct credentials.
+
+## 🎨 Context Architecture
+
+### AuthContext
+
+Manages global authentication state:
+
+- User login/logout functionality
+- Current user information
+- Role-based permissions
+- Session management
+
+### CrudContext
+
+Handles all CRUD operations:
+
+- User management (admin only)
+- Project CRUD operations
+- Task CRUD operations
+- Real-time data synchronization across components
+
+## 🚦 Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd taskm
+```
+
+2. Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📊 User Roles & Permissions
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Feature             | Admin | Manager              | Member              |
+| ------------------- | ----- | -------------------- | ------------------- |
+| View Dashboard      | ✅    | ✅                   | ✅                  |
+| Manage Users        | ✅    | ❌                   | ❌                  |
+| Create Projects     | ✅    | ✅                   | ❌                  |
+| Edit Own Projects   | ✅    | ✅                   | ❌                  |
+| Edit All Projects   | ✅    | ❌                   | ❌                  |
+| Delete Projects     | ✅    | ✅ (own)             | ❌                  |
+| Create Tasks        | ✅    | ✅ (in own projects) | ❌                  |
+| Edit Tasks          | ✅    | ✅ (in own projects) | ❌                  |
+| Delete Tasks        | ✅    | ✅ (in own projects) | ❌                  |
+| Update Task Status  | ✅    | ✅                   | ✅ (assigned tasks) |
+| View All Tasks      | ✅    | ✅ (project tasks)   | ❌                  |
+| View Assigned Tasks | ✅    | ✅                   | ✅                  |
 
-## Learn More
+## 🎯 Key Features Breakdown
 
-To learn more about Next.js, take a look at the following resources:
+### Dashboard
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Admin View**: System-wide statistics, user management, and all projects overview
+- **Manager View**: Personal project statistics, project progress tracking, and team task overview
+- **Member View**: Personal task list with completion tracking and status management
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Projects Page
 
-## Deploy on Vercel
+- Project creation and management
+- Project assignment to managers
+- Progress tracking with visual indicators
+- Filtering and search capabilities
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Tasks Page
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Task creation with project assignment
+- User assignment functionality
+- Status tracking (Pending/Completed)
+- Role-based filtering
+- Interactive status toggle for assigned users
+
+## 🔔 Toast Notifications
+
+The application provides user feedback through toast notifications for:
+
+- ✅ Successful login
+- ✅ Successful CRUD operations (Create, Update, Delete)
+- ❌ Invalid login attempts
+- ❌ Permission errors
+- ⚠️ Validation warnings
+
+## 🎨 UI/UX Features
+
+- **Responsive Design**: Fully responsive across all device sizes
+- **Dark Mode Support**: Built-in dark mode compatibility
+- **Intuitive Navigation**: Role-based sidebar navigation
+- **Loading States**: Visual feedback during async operations
+- **Empty States**: Helpful messages when no data is available
+- **Confirmation Dialogs**: Prevent accidental deletions
+
+## 🔒 Security Features
+
+- Protected routes with authentication checks
+- Role-based access control (RBAC)
+- Prevention of privilege escalation (users cannot modify their own roles)
+- Last admin protection (cannot delete or demote the last admin)
+- Session management
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+## 📧 Support
+
+For support, please open an issue in the repository or contact the development team.
+
+---

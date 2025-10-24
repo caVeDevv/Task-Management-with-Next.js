@@ -117,12 +117,18 @@ export default function TasksPage() {
   };
 
   const canToggleStatus = (task) => {
+    // Admin can toggle any task
     if (isAdmin) return true;
+
+    // Manager can toggle tasks in their projects
     if (isManager) {
       const project = mainprojects.find((p) => p.id === task.projectId);
       return project?.owner === user?.email;
     }
-    if (isMember) return task.assignedTo === user?.email;
+
+    // Member can toggle their own assigned tasks
+    if (isMember && task.assignedTo === user?.email) return true;
+
     return false;
   };
 
@@ -334,9 +340,9 @@ export default function TasksPage() {
                               className="flex-shrink-0"
                             >
                               {task.status === "done" ? (
-                                <CheckCircle2 className="w-5 h-5 text-green-500 cursor-pointer" />
+                                <CheckCircle2 className="w-5 h-5 text-green-500 cursor-pointer hover:text-green-600 transition-colors" />
                               ) : (
-                                <Clock className="w-5 h-5 text-orange-500 cursor-pointer" />
+                                <Clock className="w-5 h-5 text-orange-500 cursor-pointer hover:text-orange-600 transition-colors" />
                               )}
                             </button>
                           ) : (

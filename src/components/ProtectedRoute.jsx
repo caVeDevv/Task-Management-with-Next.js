@@ -25,7 +25,7 @@ export default function ProtectedRoute({ children }) {
 
   if (loading) {
     return (
-      <div className="h-screen bg-black flex items-center justify-center">
+      <div className="bg-black h-screen  flex items-center justify-center">
         <p className="font-bold text-white">Loading...</p>
       </div>
     );

@@ -34,7 +34,7 @@ export default function ProtectedRoute({ children }) {
   if (!user) {
     return (
       <div className="h-screen bg-black flex items-center justify-center">
-        <p className="font-bold text-white">Redirecting...</p>
+        <p className="font-bold text-white">Redirecting ...</p>
       </div>
     );
   }

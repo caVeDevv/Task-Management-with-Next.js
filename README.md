@@ -22,23 +22,15 @@ A comprehensive role-based task management application built with Next.js, featu
 - Manage user roles (promote/demote users)
 - Create, edit, and delete all projects
 - Create, edit, and delete all tasks
-- View system-wide statistics and analytics
-- Access to complete user management interface
 
 ### Manager Capabilities
 
-- Create and manage their own projects
 - Create, edit, and delete tasks within their projects
-- Assign tasks to team members
-- View project-specific analytics and progress
 - Monitor task completion rates
 
 ### Member Capabilities
 
 - View all tasks assigned to them
-- Update task status (mark as pending/completed)
-- Track personal task completion progress
-- Access personalized dashboard with task overview
 
 ## Tech Stack
 
@@ -56,29 +48,31 @@ taskm/
 ├── src/
 │   ├── app/
 │   │   ├── dashboard/
-│   │   │   └── page.jsx          # Main dashboard with role-based views
+│   │   │   └── page.jsx          # Role-based dashboard
 │   │   ├── login/
 │   │   │   └── page.jsx          # Authentication page
 │   │   ├── projects/
-│   │   │   └── page.jsx          # Projects management (protected)
+│   │   │   └── [id]/
+│   │   │       └── page.jsx      # Project management (protected)
 │   │   ├── tasks/
-│   │   │   └── page.jsx          # Tasks management (protected)
+│   │   │   └── page.jsx          # Task management (protected)
 │   │   ├── layout.jsx
 │   │   └── page.jsx
 │   ├── components/
 │   │   ├── ui/                   # shadcn/ui components
 │   │   ├── app-sidebar.jsx       # Navigation sidebar
-│   │   └── ProtectedRoute.jsx    # Route protection wrapper
+│   │   └── ProtectedRoute.jsx    # Route protection
 │   ├── context/
-│   │   ├── AuthContext.jsx       # Authentication state management
-│   │   └── CrudContext.jsx       # CRUD operations state management
+│   │   ├── AuthContext.jsx       # Authentication logic
+│   │   └── CrudContext.jsx       # CRUD and state logic
 │   └── data/
-│       └── seedData.js           # Initial user data for authentication
+│       ├── projects.jsx          # Seed project data
+│       ├── tasks.jsx             # Seed task data
+│       └── users.jsx             # Seed user data
 ├── public/
 ├── package.json
 └── README.md
 ```
-
 ## 🔐 Authentication
 
 The application uses seed data for login operations. Users must authenticate with valid credentials from the seed data to access protected routes.
@@ -184,8 +178,6 @@ yarn dev
 - Task creation with project assignment
 - User assignment functionality
 - Status tracking (Pending/Completed)
-- Role-based filtering
-- Interactive status toggle for assigned users
 
 ## 🔔 Toast Notifications
 
@@ -211,8 +203,6 @@ The application provides user feedback through toast notifications for:
 - Protected routes with authentication checks
 - Role-based access control (RBAC)
 - Prevention of privilege escalation (users cannot modify their own roles)
-- Last admin protection (cannot delete or demote the last admin)
-- Session management
 
 ## 📝 License
 

@@ -2,7 +2,7 @@
 
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
-import "../globals.css"; // still needed so Tailwind/global styles apply
+import "../globals.css";
 
 export default function AdminLayout({ children }) {
   return (
@@ -12,7 +12,7 @@ export default function AdminLayout({ children }) {
         <AppSidebar />
 
         {/* Main page content */}
-        <main className="flex-1">
+        <main className="flex-1 border border-red-500">
           <SidebarTrigger />
           {children}
         </main>

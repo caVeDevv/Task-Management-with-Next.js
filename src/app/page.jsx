@@ -42,7 +42,7 @@ export default function Home() {
 "
         >
           <Image
-            className="object-cover rounded-2xl rounded-b-none w-full h-full object cover"
+            className="object-cover rounded-2xl rounded-b-none w-full h-auto object cover"
             src={main}
             width={2000}
             height={2000}

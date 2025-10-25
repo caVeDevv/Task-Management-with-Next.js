@@ -8,7 +8,7 @@ A comprehensive role-based task management application built with Next.js, featu
 
 - **Admin**: Full system access with user management capabilities
 - **Manager**: Project and task management for owned projects
-- **Member**: View and update assigned tasks
+- **Member**: View assigned tasks
 
 ### Core Functionality
 
@@ -19,7 +19,7 @@ A comprehensive role-based task management application built with Next.js, featu
 
 ### Admin Capabilities
 
-- Manage user roles (promote/demote users)
+- Manage user roles (promote/demote users
 - Create, edit, and delete all projects
 - Create, edit, and delete all tasks
 

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "TaskM",
+  title: "Task-M",
   description: "Your All-in-One Task Management Solution",
 };
 

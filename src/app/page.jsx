@@ -22,7 +22,7 @@ export default function Home() {
           <div className="mt-4 text-sm md:text-base text-white/50">
             <button
               onClick={handleGetStarted}
-              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black transition-all px-5 py-3 text-lg rounded-full mt-7"
+              className="bg-transparent cursor-pointer border-2 border-white text-white hover:bg-white hover:text-black transition-all px-5 py-3 text-lg rounded-full mt-7"
             >
               Get started
             </button>

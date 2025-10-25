@@ -56,7 +56,7 @@ export function AppSidebar() {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <Link href={item.url}>
+                    <Link href={item.url} className="cursor-pointer">
                       <item.icon className="w-4 h-4" />
                       <span>{item.title}</span>
                     </Link>
@@ -66,7 +66,7 @@ export function AppSidebar() {
 
               <SidebarMenuItem>
                 <SidebarMenuButton onClick={handleLogout}>
-                  <LogOut className="w-4 h-4" />
+                  <LogOut className="w-4 h-4 cursor-pointer" />
                   <span>Logout</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>

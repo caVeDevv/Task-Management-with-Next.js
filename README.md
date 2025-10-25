@@ -1,4 +1,4 @@
-# TaskM - Task Management System
+# Task-M - Task Management System
 
 A comprehensive role-based task management application built with Next.js, featuring three distinct user roles with customized permissions and dashboards.
 
@@ -8,7 +8,7 @@ A comprehensive role-based task management application built with Next.js, featu
 
 - **Admin**: Full system access with user management capabilities
 - **Manager**: Project and task management for owned projects
-- **Member**: View and update assigned tasks
+- **Member**: View assigned tasks
 
 ### Core Functionality
 
@@ -19,7 +19,7 @@ A comprehensive role-based task management application built with Next.js, featu
 
 ### Admin Capabilities
 
-- Manage user roles (promote/demote users)
+- Manage user roles (promote/demote users
 - Create, edit, and delete all projects
 - Create, edit, and delete all tasks
 
@@ -119,7 +119,7 @@ Handles all CRUD operations:
 1. Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/caVeDevv/Task-Management-with-Next.js.git
 cd taskm
 ```
 
@@ -147,14 +147,14 @@ yarn dev
 | ------------------- | ----- | -------------------- | ------------------- |
 | View Dashboard      | ✅    | ✅                   | ✅                  |
 | Manage Users        | ✅    | ❌                   | ❌                  |
-| Create Projects     | ✅    | ✅                   | ❌                  |
+| Create Projects     | ✅    | ❌                   | ❌                  |
 | Edit Own Projects   | ✅    | ✅                   | ❌                  |
 | Edit All Projects   | ✅    | ❌                   | ❌                  |
-| Delete Projects     | ✅    | ✅ (own)             | ❌                  |
+| Delete Projects     | ✅    | ❌ (own)             | ❌                  |
 | Create Tasks        | ✅    | ✅ (in own projects) | ❌                  |
 | Edit Tasks          | ✅    | ✅ (in own projects) | ❌                  |
 | Delete Tasks        | ✅    | ✅ (in own projects) | ❌                  |
-| Update Task Status  | ✅    | ✅                   | ✅ (assigned tasks) |
+| Update Task Status  | ✅    | ✅                   | ❌ (assigned tasks) |
 | View All Tasks      | ✅    | ✅ (project tasks)   | ❌                  |
 | View Assigned Tasks | ✅    | ✅                   | ✅                  |
 
@@ -171,7 +171,6 @@ yarn dev
 - Project creation and management
 - Project assignment to managers
 - Progress tracking with visual indicators
-- Filtering and search capabilities
 
 ### Tasks Page
 
@@ -179,38 +178,11 @@ yarn dev
 - User assignment functionality
 - Status tracking (Pending/Completed)
 
-## 🔔 Toast Notifications
-
-The application provides user feedback through toast notifications for:
-
-- ✅ Successful login
-- ✅ Successful CRUD operations (Create, Update, Delete)
-- ❌ Invalid login attempts
-- ❌ Permission errors
-- ⚠️ Validation warnings
-
-## 🎨 UI/UX Features
-
-- **Responsive Design**: Fully responsive across all device sizes
-- **Dark Mode Support**: Built-in dark mode compatibility
-- **Intuitive Navigation**: Role-based sidebar navigation
-- **Loading States**: Visual feedback during async operations
-- **Empty States**: Helpful messages when no data is available
-- **Confirmation Dialogs**: Prevent accidental deletions
-
 ## 🔒 Security Features
 
 - Protected routes with authentication checks
 - Role-based access control (RBAC)
 - Prevention of privilege escalation (users cannot modify their own roles)
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
 
 ## 📧 Support
 

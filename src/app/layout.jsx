@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Task-M",
+  icons: {
+    icon: "/vercel.svg",
+  },
   description: "Your All-in-One Task Management Solution",
 };
 
